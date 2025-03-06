@@ -1,0 +1,572 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+    margin: 0;
+    /* background-image: url(../image/images/images/images/backgroundfashion.png); */
+    /* Background image */
+    background-size: cover;
+    /* Ensures the background image covers the entire screen */
+    background-position: center;
+    /* Centers the background image */
+    min-height: 100vh;
+}
+
+.container {
+    /* max-width: 1200px;
+    margin: auto;
+    padding: 0 15px; */
+    display: flex;
+    /* Use flexbox for layout */
+    justify-content: space-between;
+    /* Space between elements in the header */
+    align-items: center;
+    /* Vertically align the items */
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Center the container */
+    padding: 0 15px;
+    width: 100%;
+}
+
+header {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa header */
+    width: 100%; /* Chiếm toàn bộ chiều rộng của parent */
+    padding: 10px 15px; /* Thêm padding để nội dung không bị sát mép */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước header */
+}
+
+#logo {
+    position: absolute;
+    /* Position logo absolutely */
+    top: 10px;
+    /*  Adjust the distance from the top */
+    left: 20px;
+    /* Adjust the distance from the left */
+}
+
+#logo img {
+    max-width: 50px;
+    /* Adjust logo size */
+    height: auto;
+}
+.collapse{
+    display: none;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.Menu {
+    display: block;
+    /* Make the menu items appear horizontally */
+    flex-grow: 1;
+    /* align-items: center; */
+    margin-left: 100px;
+    background-color: white;
+    font-size: 25px;
+    justify-content: space-between;
+}
+
+
+.Menu ul {
+    list-style: none;
+    /* Remove default list bullets */
+    margin-right: auto;
+    padding: 0;
+    display: flex;
+    font-size: 50px;
+    /* Display menu items inline */
+}
+
+.Menu ul li {
+    /* margin-left: 20px;  Add space between each menu item */
+    display: inline-block;
+    font-size: 50px;
+}
+
+.Menu ul li a {
+    text-decoration: none;
+    /* Remove underline from links */
+    color: black;
+    /* Set text color */
+    font-size: 17px;
+    /* Adjust font size */
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.Menu>ul>li>a:hover {
+    background-color: black;
+    color: white;
+    /* Change color on hover */
+    border-radius: 5%;
+    transform: scale(1.1);
+    /* Make the button grow by 10% on hover */
+    transition: transform 0.3s ease-in-out;
+    /* Smooth transition for scaling */
+
+}
+
+.Menu ul li:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    z-index: 100;
+    /* Ensure the submenu is on top */
+
+}
+
+.submenu {
+    position: absolute;
+    background-color: black;
+    box-shadow: 5px 5px 5px black;
+    width: 275px;
+    top: 65px;
+    border-radius: 5px 5px 5px 5px;
+    opacity: 1;
+    visibility: hidden;
+    transition: transform 0.5s ease;
+    transform: scale(1.01);
+    z-index: 10;
+    margin-left: 40px;
+}
+
+.submenu ul li a {
+    display: block;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 15px;
+    z-index: 10;
+}
+
+.submenu ul li a:hover {
+    background-color: lightgray;
+    z-index: 10;
+    color: black;
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    z-index: 10;
+    font-size: 50px;
+    height: 65px;
+    text-align: center;
+    align-items: center;
+}
+
+.content_right {
+    display: flex;
+    /* Display search and admin buttons side by side */
+    align-items: center;
+    /* Vertically align buttons */
+    color: black;
+    height: 50px;
+    border-radius: 5%;
+    width: 500px;
+    margin-left: 120px;
+}
+.content_right {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa */
+    width: 100%; /* Chiếm toàn bộ chiều rộng của parent */
+    padding: 0 15px; /* Thêm padding để nội dung không bị sát mép */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+}
+
+.Menu {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa */
+    width: 100%; /* Chiếm toàn bộ chiều rộng của parent */
+    padding: 0 15px; /* Thêm padding để nội dung không bị sát mép */
+    box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước */
+}
+.content_right .btn {
+    /* Add space between buttons */
+    display: flex;
+    align-items: center;
+    /* Align icon and text */
+    text-decoration: none;
+    color: black;
+    height: 30px;
+    /* margin-left: 70px; */
+    padding: 3px 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Hiệu ứng chuyển đổi mượt mà */
+}
+
+.content_right .btn a {
+    text-decoration: none;
+    /* Ensure the link inside the button has no underline */
+    align-items: center;
+    text-align: center;
+    margin-left: 100px;
+}
+
+.content_right .btn i {
+    max-width: 20px;
+    /* Adjust icon size */
+    margin-right: 8px;
+    /* Space between icon and text */
+}
+
+a.btn.btn-store {
+    width: 100px;
+    text-align: center;
+    align-items: center;
+    margin-left: -140px;
+}
+
+a.btn {
+    width: 155px;
+}
+
+.content_right .btn-store:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.1);
+    /* Make the button grow by 10% on hover */
+    transition: transform 0.3s ease-in-out;
+    /* Smooth transition for scaling */
+    border-radius: 5%;
+    transform: scale(1.1);
+}
+
+.content_right .btn:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.1);
+    /* Make the button grow by 10% on hover */
+    transition: transform 0.3s ease-in-out;
+    transform: scale(1.1);
+    /* Smooth transition for scaling */
+    border-radius: 5%;
+}
+
+nav {
+    top: 300px;
+    position: relative;
+}
+
+/* .container1 {
+    width: 50%;
+    display: flex;
+    margin-left: 400px;
+    margin-right: auto;
+    padding-left: 50px;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    position: relative;
+} */
+
+
+nav a {
+    text-decoration: none;
+    /* Removes the underline from the link in the nav */
+}
+
+/* .container1 img {
+
+
+    width: 100px;
+    /* Set the width to 100px */
+    /* height: 50px; */
+    /* Adjust the height automatically to maintain aspect ratio */
+    /* margin-left: 340px; */
+
+/* } */ 
+
+/* .bread-more-link {
+    position: relative;
+    /* Ensure the text is positioned relative to the image */
+    /* display: inline-block; */
+    /* Allow text to be aligned with the image */
+
+/* } */ 
+
+/* .container1 img {
+    width: 40%;
+    /* Đặt ảnh chiếm toàn bộ chiều rộng của container */
+    /* height: auto; */
+    /* Giữ tỷ lệ khung hình của ảnh */
+    /* border-radius: 0 0 10px; */
+
+/* }  */
+
+/* .bread-more-text {
+
+
+
+    position: absolute;
+    /* Đặt text lên trên ảnh */
+    /* top: 50%; */
+    /* Đặt text chính giữa theo chiều dọc */
+    /* left: 50%; */
+    /* Đặt text chính giữa theo chiều ngang */
+    /* transform: translate(-50%, -50%); */
+    /* Dịch chuyển văn bản để căn chính xác vào giữa */
+    /* color: white; */
+    /* Đặt màu chữ thành trắng */
+    /* font-size: 18px; */
+    /* Đặt kích thước chữ là 18px */
+    /* font-weight: bold; */
+    /* Làm chữ đậm */
+    /* z-index: 10; */
+    /* Đảm bảo text nằm trên ảnh */
+    /* margin-left: 150px; */
+
+/* }  */
+.slider {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto; /* Căn giữa slider */
+    width: 100%; /* Chiếm toàn bộ chiều rộng của container */
+}
+
+.slick-slider {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+}
+.slick-slide {
+    width: 100%; /* Chiếm toàn bộ chiều rộng của slider */
+}
+a.bread-more-text {
+    margin-left: 40px;
+}
+.slick-slider {
+    width: 100%; /* Chiếm toàn bộ chiều rộng của container */
+    margin: 0 auto; /* Căn giữa slider */
+}
+
+.slick-slide img {
+    width: 100%; /* Chiếm toàn bộ chiều rộng của slide */
+    height: auto; /* Giữ tỷ lệ khung hình */
+    max-height: 500px; /* Giới hạn chiều cao tối đa của ảnh */
+}
+.slider-container {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa của container */
+    margin: 0 auto; /* Căn giữa container */
+    padding: 0 15px; /* Thêm padding để không bị sát mép */
+}
+.slick-prev, .slick-next {
+    width: 40px; /* Điều chỉnh chiều rộng của nút */
+    height: 40px; /* Điều chỉnh chiều cao của nút */
+    z-index: 1; /* Đảm bảo nút nằm trên cùng */
+}
+
+.slick-prev {
+    left: 10px; /* Điều chỉnh vị trí nút prev */
+}
+
+.slick-next {
+    right: 10px; /* Điều chỉnh vị trí nút next */
+}
+.slick-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+}
+.slider-container {
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa của container */
+    margin: 0 auto; /* Căn giữa container */
+    padding: 0 15px; /* Thêm padding để không bị sát mép */
+}
+.slick-prev, .slick-next {
+    width: 40px; /* Điều chỉnh chiều rộng của nút */
+    height: 40px; /* Điều chỉnh chiều cao của nút */
+    z-index: 1; /* Đảm bảo nút nằm trên cùng */
+}
+
+.slick-prev {
+    left: 10px; /* Điều chỉnh vị trí nút prev */
+}
+
+.slick-next {
+    right: 10px; /* Điều chỉnh vị trí nút next */
+}
+.slick-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Đảm bảo hình ảnh không bị méo */
+}
+.slick-slide img {
+    display: block; /* Đảm bảo ảnh hiển thị */
+    visibility: visible; /* Đảm bảo ảnh không bị ẩn */
+    opacity: 1; /* Đảm bảo ảnh không trong suốt */
+}
+.slider-container {
+    width: 100%; /* Chiếm toàn bộ chiều rộng của parent */
+    max-width: 1200px; /* Giới hạn chiều rộng tối đa nếu cần */
+    margin: 0 auto; /* Căn giữa container */
+    padding: 0; /* Đảm bảo không có padding gây thu hẹp */
+}
+
+/*@media screen and (max-width: 768px) {
+    /* Đảm bảo body và html không gây tràn chiều ngang */
+    /* body, html { */
+        /* margin: 0; */
+        /* padding: 0; */
+        /* width: 100%; */
+        /* height: 100%; */
+        /* overflow-x: hidden; Ngừng tràn chiều ngang */
+    /* } */
+
+    /* body { */
+        /* background-size: contain; Đảm bảo hình nền không tràn ra ngoài */
+        /* width: 100%; */
+        /* height: auto; */
+    /* } */
+
+    /* header { */
+        /* height: 50%; */
+        /* padding: 10px; */
+        /* flex-direction: column; */
+        /* align-items: center; */
+        /* justify-content: space-between; */
+        /* width: 100%; */
+        /* text-align: center; */
+        /* margin-left: 0; */
+        /* box-sizing: border-box; Đảm bảo không gây lỗi với model hộp */
+    /* } */
+
+    /* #logo { */
+        /* position: static; */
+        /* text-align: center; */
+        /* margin-bottom: 10px; */
+    /* } */
+
+    /* #logo img { */
+        /* max-width: 50px; Điều chỉnh kích thước logo cho màn hình nhỏ */
+    /* } */
+
+    /* .Menu { */
+        /* display: block; Hiển thị menu theo chiều dọc */
+        /* justify-content: space-between; */
+        /* align-items: center; */
+        /* font-size: 18px; Điều chỉnh kích thước chữ cho màn hình nhỏ */
+        /* background-color: white; */
+        /* width: 100%; Đảm bảo menu chiếm toàn bộ chiều rộng */
+        /* box-sizing: border-box; Đảm bảo không tràn ra ngoài */
+    /* } */
+
+    /* .Menu ul { */
+        /* display: flex; */
+        /* flex-direction: column; Sắp xếp các mục trong menu theo chiều dọc */
+        /* padding: 0; */
+        /* margin: 0; */
+        /* list-style-type: none; Loại bỏ dấu chấm trong danh sách */
+        /* justify-content: center; */
+    /* } */
+
+    /* .Menu ul li { */
+        /* display: block; */
+        /* font-size: 20px; */
+        /* margin-right: 0; */
+        /* margin-bottom: 10px; Khoảng cách giữa các mục menu */
+    /* } */
+
+    /* .Menu ul li a { */
+        /* text-decoration: none; */
+        /* color: black; */
+        /* padding: 10px 20px; */
+        /* display: block; */
+        /* position: relative; */
+        /* width: 100%; Đảm bảo mỗi link chiếm toàn bộ chiều rộng */
+    /* } */
+    /* .bread-more-text { */
+        /* position: absolute; */
+        /* top: 50%; */
+        /* left: 50px; Thay đổi giá trị này để dịch sang phải */
+        /* transform: translate(-50%);
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        z-index: 10;
+    } */
+    
+    /* .Menu ul li a:hover { */
+        /* background-color: black; Đổi màu nền khi hover */
+        /* color: white; Đổi màu chữ khi hover */
+        /* border-radius: 5%; Làm tròn góc khi hover */
+        /* transform: scale(1.1); Phóng to 10% khi hover */
+        /* transition: transform 0.3s ease-in-out; Hiệu ứng chuyển động mượt mà */
+    /* } */
+
+    /* .content_right { */
+        /* flex-direction: column; Xếp các nút theo chiều dọc */
+        /* align-items: center;
+        margin-left: -200px;
+        justify-content: center;
+        width: 100%;
+        margin-top: 10px;
+    } */
+/* 
+    .content_right .btn {
+        margin: 5px 0;
+        width: auto;
+        font-size: 14px;
+        padding: 5px 10px;
+    }
+
+    .content_right .btn i {
+        margin-right: 5px;
+    } */
+    /* .container1 {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding-left: 10px;
+        margin: 0; */
+        /* box-sizing: border-box; Đảm bảo không tràn ra ngoài */
+    /* } */
+
+    /* .container1 img { */
+        /* width: 80px; Điều chỉnh kích thước hình ảnh */
+        /* height: auto; */
+        /* margin-right: 100px; */
+       
+    /* } */
+
+    /* .bread-more-link {
+        position: relative;
+        display: inline-block;
+        align-items: center;
+    }
+
+    .bread-more-text {
+        position: relative;
+        top: auto;
+        left: auto;
+        transform: none;
+        color: white;
+        font-size: 10px;
+        font-weight: bold;
+        z-index: 10;
+        margin-left: -150px;
+    } */
+
+    /* Đảm bảo không có tràn chiều ngang */
+    /* * { */
+        /* box-sizing: border-box; Đảm bảo padding và margin không gây tràn */
+    /* } */
+
+
+/* nav {
+    top: 120px;
+    position: relative;
+    width: 100%;
+    margin-left: 100px;
+    padding-left: 10px;
+    text-align: center;
+} */
+/* } */
+

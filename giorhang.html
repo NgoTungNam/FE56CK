@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Giỏ hàng</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='./CSS/cart.css'>
+
+</head>
+<style>
+    .cart-empty {
+        width: 500px;
+        margin: 100px auto 0;
+        text-align: center;
+        font-size: 25px;
+        letter-spacing: 2px;
+        display: none;
+    }
+
+    .Home {
+        cursor: pointer;
+        border: none;
+        background-color: black;
+        color: white;
+        padding: 10px 50px;
+        margin: 20px;
+        border:  10% solid #ffffff;
+    }
+
+    .list_product,
+    .total_price,
+    .buttons-clearfix {
+        display: block;
+        /* Đảm bảo các phần tử này luôn hiển thị khi có sản phẩm trong giỏ */
+    }
+
+    /* Phần tử giỏ hàng khi không còn sản phẩm
+.list_product, .total_price, .buttons-clearfix {
+    display: none; /* Ẩn phần giỏ hàng khi không có sản phẩm */
+    /* } */
+    .content-right:hover{
+        background-color: black;
+        color:white ;
+        border-radius: 5%;
+        transform: scale(1.1);
+    /* Make the button grow by 10% on hover */
+    transition: transform 0.3s ease;
+    /* Smooth transition for scaling */
+
+    }
+    .quantity {
+    display: flex; /* Hiển thị các phần tử theo hàng ngang */
+    align-items: center; /* Căn giữa các phần tử theo chiều dọc */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+}
+
+.quantity input {
+    width: 50px; /* Đặt chiều rộng cố định cho input */
+    text-align: center; /* Căn giữa nội dung trong input */
+}
+
+.quantity button {
+    padding: 5px 10px; /* Thêm padding cho nút */
+    font-size: 16px; /* Đặt kích thước chữ */
+    border: none; /* Loại bỏ viền */
+    cursor: pointer; /* Hiển thị con trỏ khi di chuột qua */
+    background-color: #28a745; /* Màu nền cho nút + */
+    color: white; /* Màu chữ */
+    border-radius: 5px; /* Bo góc */
+    margin-left: 2px;
+    text-align: center;
+}
+
+.quantity button[data-type="tru"] {
+    background-color: #dc3545; /* Màu nền cho nút - */
+    margin-left: -1px;
+}
+.buttons-clearfix .btn-danger {
+    display: flex; /* Sử dụng flexbox để căn giữa */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    text-align: center; /* Căn giữa chữ */
+    width: 150px; /* Đặt chiều rộng cố định cho nút */
+    height: 40px; /* Đặt chiều cao cố định cho nút */
+    margin-left: -100px; /* Điều chỉnh margin nếu cần */
+    margin-top: 100px; /* Điều chỉnh margin nếu cần */
+}
+.Menu ul li a i {
+    margin-right: 8px; /* Khoảng cách giữa icon và chữ */
+}
+.btn-remove {
+    display: flex; /* Sử dụng flexbox để căn chỉnh */
+    justify-content: center; /* Căn giữa theo chiều ngang */
+    align-items: center; /* Căn giữa theo chiều dọc */
+    text-align: center; /* Căn giữa chữ */
+    padding: 10px 20px; /* Thêm padding để nút đẹp hơn */
+    gap: 8px; /* Khoảng cách giữa icon và chữ */
+}
+.Menu>ul>li>a:hover {
+    background-color: black;
+    color: white;
+    /* Change color on hover */
+    border-radius: 5%;
+    transform: scale(1.05);
+    /* Make the button grow by 10% on hover */
+    transition: transform 0.3s ease;
+    /* Smooth transition for scaling */
+
+}
+.content_right .btn-store:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.05);
+    /* Make the button grow by 10% on hover */
+    transition: transform 0.3s ease;
+    /* Smooth transition for scaling */
+    border-radius: 5%;
+}
+
+.content_right .btn:hover {
+    background-color: black;
+    color: white;
+    transform: scale(1.05);
+    /* Make the button grow by 10% on hover */
+    transition: transform 0.3s ease;
+    /* Smooth transition for scaling */
+    border-radius: 5%;
+}
+</style>
+
+<body>
+    <header>
+        <div class="container">
+            <div id="logo">
+                <a href="./home.html">
+                    <img src="./image/images/images/images/Logo2.png" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="Menu">
+            <ul>
+                <li><a href="">
+                        <i class="fa-solid fa-house"></i>
+                        Home
+                    </a></li>
+            </ul>
+        </div>
+        <div class="content_right">
+            <a href="" class="btn btn-store">
+                <i class="fa-solid fa-cart-shopping"></i>
+                Giỏ hàng
+            </a>
+            <a href="" class="btn">
+                <i class="fa-solid fa-user"></i>
+                Đăng nhập/Đăng ký
+            </a>
+        </div>
+    </header>
+    <nav>
+        <div class="newsesion">
+            <a href="">
+                <img src="./image/images/images/images/cart-nav.png" alt="">
+            </a>
+        </div>
+    </nav>
+    <main>
+        <div id="content" class="col-sm-12">
+            <h1>Giỏ hàng</h1>
+            <div class="container-lg">
+                <div class="list_product">
+                    <!-- start -->
+                    <div class="row">
+                        <div class="product">
+                            <a href="">
+                                <img src="./image/images/images/images/NIKE+SHOX+R4.png" alt="">
+                            </a>
+                            <div>
+                                <h3>Tên sản phẩm được mua</h3>
+                                <p>Xuất xứ: Việt Nam - Nike</p>
+                            </div>
+                        </div>
+                        <div class="quantity">
+                            <button type="button" class="btn btn-success" data-type="cong">+</button>
+                            <input class="input_quantity" value="1" data-price="300000">
+                            <button type="button" class="btn btn-danger" data-type="tru">-</button>
+                        </div>
+                        <div class="price">
+                            <div class="alert alert-primary" role="alert"> 300.000đ</div>
+                        </div>
+                        <button type="button" class="btn btn-danger btn-remove">
+                            <i class="bi bi-trash"></i>
+                            Xóa
+                        </button>
+                    </div>
+                    <!-- end -->
+                    <!-- start -->
+                    <div class="row">
+                        <div class="product">
+                            <a href="">
+                                <img src="./image/images/images/images/NIKE+SHOX+R4.png" alt="">
+                            </a>
+                            <div>
+                                <h3>Tên sản phẩm được mua</h3>
+                                <p>Xuất xứ: Việt Nam - Nike</p>
+                            </div>
+                        </div>
+                        <div class="quantity">
+                            <button type="button" class="btn btn-success" data-type="cong">+</button>
+                            <input class="input_quantity" value="1" data-price="300000">
+                            <button type="button" class="btn btn-danger" data-type="tru">-</button>
+                        </div>
+                        <div class="price">
+                            <div class="alert alert-primary" role="alert"> 300.000đ</div>
+                        </div>
+                        <button type="button" class="btn btn-danger btn-remove">
+                            <i class="bi bi-trash"></i>
+                            Xóa
+                        </button>
+                    </div>
+                    <!-- end -->
+                    <!-- start -->
+                    <div class="row">
+                        <div class="product">
+                            <a href="">
+                                <img src="./image/images/images/images/NIKE+SHOX+R4.png" alt="">
+                            </a>
+                            <div>
+                                <h3>Tên sản phẩm được mua</h3>
+                                <p>Xuất xứ: Việt Nam - Nike</p>
+                            </div>
+                        </div>
+                        <div class="quantity" >
+                            <button type="button" class="btn btn-success" data-type="cong">+</button>
+                            <input class="input_quantity" value="1" data-price="300000">
+                            <button type="button" class="btn btn-danger" data-type="tru">-</button>
+                        </div>
+                        <div class="price">
+                            <div class="alert alert-primary" role="alert"> 300.000đ</div>
+                        </div>
+                        <button type="button" class="btn btn-danger btn-remove">
+                            <i class="bi bi-trash"></i>
+                            Xóa
+                        </button>
+                    </div>
+                    <!-- end -->
+                </div>
+                <div class="total_price">
+                    <span class="badge rounded-pill bg-dark">Tổng tiền</span>
+                    <span id="total">0đ</span>
+                    <select class="form-select btn btn-primary" aria-label="Default select example" style="margin-left: -5px;">
+                        <option value="1">Thanh toán Trực tiếp</option>
+                        <option value="2">Thanh toán Chuyển khoản</option>
+                    </select>
+                </div>
+            </div>
+            <div class="buttons-clearfix">
+                <div class="pull-right">
+                    <a href="" class="btn btn-danger" style="margin-left: -100px;margin-top:100px;text-align: center;align-items: center;">Đặt hàng</a>
+                </div>
+            </div>
+        </div>
+        <div class="cart-empty">
+            <h2>Giỏ hàng trống</h2>
+            <a href="./home.html">
+                <button class="Home">Quay lại trang chủ</button>
+            </a>
+        </div>
+    </main>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="jquery/jquery-3.7.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            // Hàm kiểm tra giỏ hàng trống
+            function checkCartEmpty() {
+                if ($('.list_product .row').length === 0) {
+                    // Nếu không còn sản phẩm, hiển thị thông báo và nút "Quay lại trang chủ"
+                    $('.cart-empty').show();
+                    $('.Home').show();
+                    $('.list_product, .total_price, .buttons-clearfix').hide(); // Ẩn các phần tử giỏ hàng
+                } else {
+                    // Nếu còn sản phẩm, ẩn thông báo và hiển thị các phần tử giỏ hàng
+                    $('.cart-empty').hide();
+                    $('.Home').hide();
+                    $('.list_product, .total_price, .buttons-clearfix').show();
+                }
+            }
+
+            // Xử lý sự kiện nhấn nút "+" hoặc "-"
+            $('.btn').on('click', function () {
+                var obj = $(this).parent().find('.input_quantity');
+                var quantity = parseInt(obj.val()); // Chuyển đổi thành số nguyên
+                var dataType = $(this).attr('data-type');
+                var price = parseFloat(obj.attr('data-price')); // Chuyển đổi thành số thực
+
+                if (dataType == 'cong') {
+                    quantity++;
+                } else {
+                    if (quantity > 1) {
+                        quantity--;
+                    }
+                }
+
+                var total = quantity * price;
+                obj.val(quantity); // Cập nhật giá trị mới vào input
+                var parents = $(this).parents('.row');
+                total = formatPrice(total, 'đ');
+                parents.find('.price').text(total); // Cập nhật giá tiền của sản phẩm
+
+                updateTotalPrice(); // Cập nhật tổng tiền giỏ hàng
+            });
+
+            // Xử lý sự kiện nhấn nút "Xóa"
+            $('.btn-remove').on('click', function () {
+                var parents = $(this).parents('.row');
+                parents.remove(); // Xóa sản phẩm khỏi giỏ hàng
+                updateTotalPrice(); // Cập nhật tổng tiền giỏ hàng
+                checkCartEmpty(); // Kiểm tra giỏ hàng trống
+            });
+
+            // Cập nhật tổng tiền giỏ hàng
+            function updateTotalPrice() {
+                var totalPrice = 0;
+
+                $('.input_quantity').each(function () {
+                    var quantityProduct = parseInt($(this).val()); // Chuyển đổi thành số nguyên
+                    var priceProduct = parseFloat($(this).attr('data-price')); // Chuyển đổi thành số thực
+                    totalPrice += quantityProduct * priceProduct; // Cộng dồn tổng tiền
+                });
+
+                totalPrice = formatPrice(totalPrice, 'đ');
+                $('#total').text(totalPrice); // Cập nhật tổng tiền trên trang
+            }
+
+            // Định dạng giá tiền
+            function formatPrice(number, currency = 'đ') {
+                var str = number.toString();
+                var count = str.length;
+                var offset = count % 3;
+                if (offset === 0) {
+                    offset = 3;
+                }
+                var n = Math.ceil(count / 3);
+                var array = [];
+                var item;
+                for (var i = 0; i < n; i++) {
+                    if (i === 0) {
+                        item = str.substr(0, offset);
+                        array[i] = item;
+                    } else {
+                        item = str.substr(offset, 3);
+                        offset += 3;
+                        array[i] = item;
+                    }
+                }
+
+                var price = array.join('.');
+                return price + currency;
+            }
+
+            // Gọi hàm updateTotalPrice và checkCartEmpty khi trang được tải
+            updateTotalPrice();
+            checkCartEmpty();
+        });
+    </script>
+</body>
+
+</html> 

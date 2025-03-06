@@ -1,0 +1,301 @@
+@import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+body {
+    margin: 0;
+    /* background-image: url(../image/images/images/images/backgroundfashion.png); */
+    /* Background image */
+    background-size: cover;
+    /* Ensures the background image covers the entire screen */
+    background-position: center;
+    /* Centers the background image */
+    min-height: 100vh;
+   
+}
+.container {
+    /* max-width: 1200px;
+    margin: auto;
+    padding: 0 15px; */
+    display: flex;
+    /* Use flexbox for layout */
+    justify-content: space-between;
+    /* Space between elements in the header */
+    align-items: center;
+    /* Vertically align the items */
+    max-width: 1200px;
+    margin: 0 auto;
+    /* Center the container */
+    padding: 0 15px;
+    width: 40%;
+}
+
+header {
+
+    /* background-size: cover; Ensures the background covers the entire header */
+    /* background-position: center; Centers the background */
+    /* background-repeat: no-repeat; Prevents repeating the background */
+    display: flex;
+    /* Flex container for header */
+    justify-content: space-between;
+    /* Space out the logo, menu, and buttons */
+    align-items: center;
+    /* Vertically center items */
+    padding: 10px 15px;
+    /* Padding */
+    width: 100%;
+    /* Full width */
+    height: 20vh;
+    /* Full viewport height */
+    /* position: relative; Allows the container to control positioning */
+    background-color: white;
+    position: relative;
+}
+
+#logo {
+    position: absolute;
+    /* Position logo absolutely */
+    top: 5px;
+    /*  Adjust the distance from the top */
+    left: 20px;
+    /* Adjust the distance from the left */
+}
+
+#logo img {
+    max-width: 90px;
+    /* Adjust logo size */
+    height: auto;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+.Menu {
+    display: flex;
+    /* Make the menu items appear horizontally */
+    flex-grow: 1;
+    /* align-items: center; */
+    background-color: white;
+    font-size: 50px;
+    justify-content: flex-start; /* Căn trái các mục menu */
+    /* margin-left: 150px; */
+   
+}
+
+
+.Menu ul {
+    list-style: none;
+    /* Remove default list bullets */
+    margin-right: auto;
+    padding: 0;
+    display: flex;
+    font-size: 50px;
+    /* Display menu items inline */
+}
+
+.Menu ul li {
+     margin-left: 40px;  
+    display: inline-block;
+    font-size: 50px;
+}
+
+.Menu ul li a {
+    text-decoration: none;
+    /* Remove underline from links */
+    color: black;
+    /* Set text color */
+    font-size: 17px;
+    /* Adjust font size */
+    padding: 10px 20px;
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+}
+
+.Menu>ul>li>a:hover {
+    background-color: black;
+    color: rgb(152, 152, 153);
+    /* Change color on hover */
+    border-radius: 10%;
+
+}
+
+.Menu ul li:hover .submenu {
+    opacity: 1;
+    visibility: visible;
+    z-index: 100;
+    /* Ensure the submenu is on top */
+
+}
+
+
+
+.content_right {
+    display: flex;
+    /* Display search and admin buttons side by side */
+    align-items: center;
+    /* Vertically align buttons */
+    color: black;
+   
+
+}
+
+.content_right .btn {
+    margin-left: 100px;
+    /* Add space between buttons */
+    display: flex;
+    align-items: center;
+    /* Align icon and text */
+    text-decoration: none;
+    color: black;
+
+}
+
+.content_right .btn a {
+    text-decoration: none;
+    /* Ensure the link inside the button has no underline */
+    margin-left: 60px;
+}
+
+.content_right .btn i {
+    max-width: 20px;
+    /* Adjust icon size */
+    margin-right: 20px;
+    /* Space between icon and text */
+}
+.btn {
+    margin-left: 100px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    border: 2px solid transparent; /* Đảm bảo có một đường viền mặc định */
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Thêm hiệu ứng chuyển đổi */
+}
+
+.btn:hover {
+    background-color: black !important; /* Màu nền khi hover */
+    color: white !important; /* Màu chữ khi hover */
+    border-radius: 5% !important; /* Bo góc khi hover */
+    text-align: center !important; /* Căn giữa chữ */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Hiệu ứng chuyển đổi */
+}
+
+nav img { 
+max-width: 100%; /* Điều chỉnh kích thước hình ảnh để vừa với phần tử nav */  
+width: 100%; /* Làm cho hình ảnh nhỏ hơn */ 
+height: auto; /* Giữ tỷ lệ khung hình */
+}
+main {
+    padding: 20px;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+.row{
+    margin-right: -15px;
+    margin-left: -15px;
+}
+@media(min-width:768px){
+    .col-sm-12{
+        width: 100%;
+    }
+}
+h1{
+    margin-top: 0;
+    font-size: 36px;
+    margin-bottom: 10px;
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+p{
+    margin: 0 0 10px;
+    box-sizing: border-box;
+}
+*{
+    box-sizing: border-box;
+}
+.container{
+    max-width: 500px;
+    margin: auto;
+  
+}
+.container-lg{
+    width: 900px;
+    height: auto;
+
+}
+.row{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+    border-bottom: 1px solid #cccccc;
+
+}
+.product{
+    display: flex;
+    align-items: flex-start;
+
+}
+.product>div{
+    margin-left: -200px;
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    text-align: left;
+}
+.product h3{
+    margin-top: 0;
+    margin-bottom: 10px;
+    
+}
+.product a img{
+    width: 30%;
+    height: 30%;
+    display: block;
+    margin-left: -50px;
+}
+.quantity{
+    margin-left: -50px;
+}
+.price{
+    margin-left: -50px;
+}
+.btn-remove{
+    margin-left: -40px;
+}
+
+.total_price{
+    font-size: 25px;
+    margin-top: 30px;
+    text-align: right;
+    width: 90%;
+    text-align: center;
+}
+span{
+    width: 90%;
+}
+#total{
+    color:red;
+    display: block;
+    margin-left: 40px;
+}
+.buttons-clearfix {
+    justify-content: center; /* Căn giữa các phần tử trong buttons-clearfix */
+    align-items: center;     /* Căn giữa theo chiều dọc */ 
+    padding: 20px 0;
+    }
+.pull-right {
+    position: relative; /* Đảm bảo nút được định vị tương đối với dòng mặc định của nó */
+    top: 60px; /* Điều chỉnh giá trị này để di chuyển nút xuống */
+    margin-left: 1100px;
+    
+}

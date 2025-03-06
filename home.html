@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel='stylesheet' type='text/css' media='screen' href='./CSS/home.css'>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <script src='main.js'></script>
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');        /* Style the container for the slider */
+        .single-item {
+            width: 80%;
+            margin: 50px auto;
+        }
+
+        .single-item img {
+            width: 100%; /* Make sure images fill the container */
+        }
+</style>
+
+<body>
+    <header>
+        <div class="container header">
+            <div id="logo">
+                <a href="home.html">
+                    <img src="./image/images/images/images/Logo2.png" alt="">
+                </a>
+            </div>
+            <div class="Menu">
+                <ul>
+                    <li><a href="" >
+                        <i class="fa-solid fa-house"></i>
+                        Home</a></li>
+                    <li><a href="" style="margin-left: 50px;">
+                        <i class="fa-solid fa-bars"></i>
+                        Menu</a>
+                        <div class="submenu">
+                            <ul class="menu">
+                                <li><a href=""> 
+                                    <i class="fa-solid fa-shirt"></i>
+                                    Quần,áo</a></li>
+                                <li><a href="">
+                                    <i class="fa-solid fa-hat-cowboy"></i>
+                                    Mũ</a></li>
+                                <li><a href="">
+                                    <i class="fa-solid fa-shoe-prints"></i>
+                                    Giày </a></li>
+                                <li><a href="">
+                                    <i class="fa-solid fa-briefcase"></i>
+                                    Balo</a></li> 
+                            </ul> 
+                        </div>
+                    </li>
+                    <li>
+                        <a class="bread-more-text" href="./breadmore1.html">
+                            <i class="fa-solid fa-circle-info"></i>
+                            Bread more</a>
+
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="content_right">
+                <a href="" class="btn btn-store">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    Giỏ hàng
+                </a>
+                <a href="" class="btn">
+                    <i class="fa-solid fa-user"></i>
+                    Đăng nhập/Đăng ký
+                </a>
+            </div>
+        </div>
+    </header>
+    <nav>
+        <!-- /*<div class="container1">
+            <a href="" class="bread-more-link">
+                <img src="./image/images/images/images/breadmore.png" alt="Bread more">
+
+                <a class="bread-more-text" href="./breadmore1.html">Bread more</a>
+               
+            </a>
+        </div>*/ -->
+        <span id="close_menu"><i class="fa-regular fa-rectangle-xmark"></i></span>
+    </nav>
+    <main>
+        <div class="slider slick-initialized slick-slider"><button class="slick-prev preview slick-arrow" style=""><i class="fa-solid fa-chevron-left"></i></button>
+            <div class="single-item">
+                <div><img src="./image/images/images/images/slider1.png" ></div>
+                <div><img src="./image/images/images/images/slider2.png" ></div>
+            </div>
+            
+            
+            
+            <button class="slick-next next slick-arrow" style=""><i class="fa-solid fa-chevron-right"></i></button></div>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="./jquery/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="./slick/slick.min.js"></script>
+
+         <script type="text/javascript">
+         <!--
+            var imgObj = null;
+            
+            function init(){
+               imgObj = document.getElementById('myImage');
+               imgObj.style.position= 'relative'; 
+               imgObj.style.left = '0px'; 
+            }
+            
+            function moveRight(){
+               imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+            }
+            
+            window.onload =init;
+         //-->
+    </script>
+  <script>
+    /*$('.slider').slick({
+        // count số slider, có 2 giá trị true/false
+        dots: false,
+        // số slide hiển trên 1 lần
+        slidesToShow: 1,
+        // số slider next hoặc pre 1 lân
+        slidesToScroll: 1,
+        // tu động chạy slide, có 2 giá trị true/false
+        autoplay: true,
+        // tốc độ chạy slider, đơn vị minisecond
+        autoplaySpeed: 2000,
+        // setting hiển thị button next và peview ko, có 2 giá trị true/false
+        arrows: true,
+        // button preview
+        prevArrow: '<button class="slick-prev preview"><i class="fa-solid fa-chevron-left"></i></button>',
+        // button next
+        nextArrow: '<button class="slick-next next"><i class="fa-solid fa-chevron-right"></i></button>',
+        responsive: [
+            {
+                // kích thước màn hình 1280px, 1024px, 992px, 768px, 576px, 420px
+                breakpoint: 768,
+                // setting hiển thị trên màn hình tương ứng vs các giá như trên
+                settings: {
+
+                }
+            }
+        ]
+    });*/
+    $(document).ready(function(){
+  $('.single-item').slick({
+    infinite: true, // Cho phép quay lại đầu khi đến cuối
+    slidesToShow: 1, // Số lượng slides hiển thị mỗi lần
+    slidesToScroll: 1, // Số lượng slide cuộn mỗi lần
+    autoplay: true, // Tự động chuyển slides
+    autoplaySpeed: 2000, // Tốc độ tự động chuyển slides (2 giây)
+    arrows: true, // Hiển thị mũi tên điều hướng
+    dots: true, // Hiển thị các điểm chỉ dẫn slide
+  });
+});
+
+    // document.querySelector('#open_menu button').addEventListener('click', function(){
+    //     document.querySelector('nav').style.left = 0;
+    // });
+
+    document.querySelector('#close_menu').addEventListener('click', function(){
+        document.querySelector('nav').style.left = '-350px';
+    });
+</script>
+<!-- Khởi tạo slider -->
+
+</body>
+
+</html>

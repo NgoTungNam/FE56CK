@@ -1,0 +1,42 @@
+@media screen and (max-width: 768px) {
+    nav {
+        top: 70px; /* Điều chỉnh vị trí top */
+        position: relative;
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        margin-left: 0; /* Căn sang bên trái */
+        padding-left: 10px; /* Thêm padding bên trái */
+    }
+
+    .container1 {
+        width: 100%; /* Chiếm toàn bộ chiều rộng */
+        display: flex;
+        margin-left: 0; /* Căn sang bên trái */
+        padding-left: 10px; /* Thêm padding bên trái */
+        justify-content: flex-start; /* Căn nội dung sang bên trái */
+        align-items: center;
+        position: relative;
+    }
+
+    .container1 img {
+        width: 50px; /* Giảm kích thước ảnh */
+        height: auto; /* Giữ tỷ lệ khung hình */
+        margin-left: 0; /* Căn sang bên trái */
+    }
+
+    .bread-more-link {
+        position: relative;
+        display: inline-block;
+    }
+
+    .bread-more-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: white;
+        font-size: 12px; /* Giảm kích thước font */
+        font-weight: bold;
+        z-index: 10;
+        margin-left: 0; /* Căn sang bên trái */
+    }
+}

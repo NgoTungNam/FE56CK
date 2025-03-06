@@ -1,0 +1,448 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Áo quần</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <script src="main.js"></script>
+  <style>
+  header{
+    overflow: auto;
+  }
+  nav{
+    position: sticky;
+  }
+  .product button{
+    color: black;
+    background-color:orangered;
+    border-radius: 5% ;
+  
+  }
+  .product .item{
+    width: calc(100%/4);
+    margin-bottom: 20px;
+    overflow: hidden;
+  }
+  .product a{
+    text-decoration: none;
+  }
+  .product  img:hover{
+    opacity: 0.5;
+    transform: scale(1.01);
+  }
+  .mb-1 button:hover{
+    background-color: blue;
+  }
+  ul .small .rounded:hover{
+    background-color: blue;
+  }
+  .product {
+    width: 100%; /* Ensures the product container spans the full width */
+    max-width: 300px; /* Limits the maximum width of each product */
+    margin: 10px; /* Optional: Adds spacing around each product */
+    overflow: hidden;
+  }
+  
+  .product img{
+    width: 100%;
+    object-fit: cover; /* Ensures no distortion of images */
+    transition: opacity 0.3s ease;/* Hiệu ứng chuyển đổi mượt mà cho độ mờ */
+    border-radius: 10% ;
+    background-color: rgba(0, 0, 0, 0.5); /* Nền bán trong suốt */
+    overflow: hidden;
+    opacity: 1;
+    transform: scale(1);
+  }
+  .img_product i{
+  position: absolute; /* Đặt vị trí tuyệt đối cho phần tử này, giúp nó xuất hiện phía trên ảnh sản phẩm. */
+    top: 50%; /* Đặt phần tử ở vị trí cách từ trên xuống giữa ảnh, với giá trị 50% là giữa ảnh. */
+    left: 50%; /* Đặt phần tử ở vị trí cách từ trái sang giữa ảnh, với giá trị 50% là giữa ảnh. */
+    transform: translate(-50%, -50%); /* Dịch chuyển phần tử lại về chính giữa theo cả chiều ngang và chiều dọc. */
+    font-size: 50px; /* Đặt kích thước chữ cho phần "Giỏ hàng". */
+    color: black; /* Đặt màu chữ là trắng để dễ nhìn trên nền đen của ảnh. */
+    background-color: rgba(0, 0, 0, 0.7); /* Nền của phần tử "Giỏ hàng" là màu đen bán trong suốt (0.7). */
+    padding: 10px 20px; /* Thêm khoảng cách bên trong phần tử "Giỏ hàng" (padding) để chữ không bị dính vào viền. */
+    border-radius: 50%; /* Bo góc phần tử "Giỏ hàng" để tạo hiệu ứng góc tròn. */
+    display: none; /* Ẩn phần tử này mặc định, chỉ hiển thị khi di chuột vào sản phẩm. */
+    text-align: center; /* Căn giữa chữ "Giỏ hàng" trong phần tử. */
+  }
+  .img_product i:hover {
+    display: block; /* Khi người dùng di chuột vào sản phẩm (class .product:hover), chữ "Giỏ hàng" sẽ xuất hiện. */
+    z-index: 1;
+  }
+  .img_product img{
+    border-radius: 5%;
+  }
+  .info{
+  margin-top: 20px;
+  }
+  h2 a{
+  color: black;
+  
+  }
+  .price{
+  color: red;
+  }
+  #scrolltop{
+  position: fixed;
+  display: block;
+  width: 80px;
+  height: 80px;
+  border: 50%;
+  text-align: center;
+  line-height: 80px;
+  font-size: 25px;
+  bottom: 50px;
+  right: 50px;
+  z-index: 1;
+  background-color: #828282;
+  text-decoration: none;
+  color: black;
+  }
+  .description{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 25px;
+  }
+  .nav-item:hover{
+        background-color: black;
+        border-radius: 5%;
+        transform: scale(1.05); /* Make the button grow by 10% on hover */
+        transition: transform 0.3s ease; /* Smooth transition for scaling */
+        padding: 5px 10px;
+    }
+    .nav-item:hover .nav-link {
+        color: white;
+        transform: scale(1.05); /* Make the button grow by 10% on hover */
+        transition: transform 0.3s ease; /* Smooth transition for scaling */
+      border-radius: 5%;
+      padding: 5px 10px;
+    }
+    .navbar-brand:hover{
+        background-color: black;
+        color: white;
+        border-radius: 5%;
+        text-align: center;
+        border-radius: 7%;
+        transform: scale(1.05); /* Make the button grow by 10% on hover */
+        transition: transform 0.3s ease; /* Smooth transition for scaling */
+        padding: 5px 10px;
+    }
+  </style></head>
+  
+  <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="width: 1250px;">
+            <div class="container-fluid" style="width: 1300px;">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <img src="./image/images/images/images/Logo2.png" alt="" style="width:50px;">
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="margin-left: 50px;">
+                <a class="navbar-brand" href="#">
+                    <i class="fa-solid fa-house"></i>
+                    Home</a>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0 " style="margin-left: 30px;">
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                        Giỏ hàng
+                    </a>
+                  </li>
+                  <li class="nav-item" style="margin-left: 30px;">
+                    <a class="nav-link" href="#">
+                        <i class="fa-solid fa-user"></i>
+                        Đăng nhập
+                    </a>
+                  </li>
+                </ul>
+                <form class="d-flex">
+                  <input class="form-control me-2" type="Tìm kiếm" placeholder="Tìm kiếm" aria-label="Search">
+                  <button class="btn btn-outline-dark" type="submit" style="width: 50%;">Tìm kiếm</button>
+                </form>
+              </div>
+            </div>
+          </nav>
+    </header>
+    <main style="display: flex;">
+      <div class="flex-shrink-0 p-3 bg-dark text-white" style="margin-left: 20px;">
+        <a href="" class="d-flex align-items-center pb-3 mb-3 link-light text-decoration-none border-bottom">
+          <svg class="bi pe-none me-2" width="30" height="24"></svg>
+          <i class="fa-solid fa-bars"></i>
+          <span class="fs-5 fw-semibold" style="margin-left: 10px;max-height: 10%;">Menu</span>
+        </a>
+        <ul class="list-unstyled ps-0">
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 text-white collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="false">
+              <i class="fa-solid fa-shirt"></i>
+              Áo
+            </button>
+            <div class="collapse" id="home-collapse" style="">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Du lịch</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Văn phòng</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Học đường</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Thể thao</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-white" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
+              <i class="fa-solid fa-socks"></i>
+              Quần
+            </button>
+            <div class="collapse" id="dashboard-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Du lịch</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Văn phòng</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Học đường</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Thể thao</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-white" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
+              <i class="fa-solid fa-shoe-prints"></i>
+              Giày
+            </button>
+            <div class="collapse" id="orders-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Du lịch</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Văn phòng</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Học đường</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Thể thao</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-white" data-bs-toggle="collapse" data-bs-target="#hat-collapse" aria-expanded="false">
+                <i class="fa-brands fa-redhat"></i>
+                Mũ
+            </button>
+            <div class="collapse" id="hat-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Du lịch</a></li>
+                    <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Văn phòng</a></li>
+                    <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Học đường</a></li>
+                    <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Thể thao</a></li>
+                </ul>
+            </div>
+        </li>
+        <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-white" data-bs-toggle="collapse" data-bs-target="#bag-collapse" aria-expanded="false">
+                <i class="fa-solid fa-suitcase"></i>
+                Balo
+            </button>
+            <div class="collapse" id="bag-collapse">
+                <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                    <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Du lịch</a></li>
+                    <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Văn phòng</a></li>
+                    <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Học đường</a></li>
+                    <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Thể thao</a></li>
+                </ul>
+            </div>
+        </li>
+        
+  
+          <li class="border-top my-3"></li>
+          <li class="mb-1">
+            <button class="btn btn-toggle d-inline-flex align-items-center rounded border-0 collapsed text-white" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
+              Breadmore
+              <i class="fa-solid fa-circle-info"></i>
+            </button>
+            <div class="collapse" id="account-collapse">
+              <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Áo</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Quần</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Mũ</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Giày</a></li>
+                <li><a href="#" class="link-light d-inline-flex text-decoration-none rounded">Balo</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div>
+    
+      <div class="content" style="display: inline-block;">
+        <h1 class="category_name" style="text-align: center;margin-left: -700px;margin-top: 30px;">
+          <i class="fa-solid fa-shirt"></i>
+          Áo văn phòng</h1>
+        <div class="products" style="display: inline-flex;flex-wrap:wrap ;margin-left: 100px;">
+            <!-- start -->
+            <div class="item" style="display:block">
+                <div class="product">
+                    <a href="" class="img_product">
+                        <img src="./image/images/images/images/áo vest.png" alt="">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <div class="info">
+                        <h2>
+                            <a href="">Áo vest</a>
+                        </h2>
+                        <div class="description">
+                            Màu đen nhìn rất là bắt mắt,phù hợp các chị em trên 30
+                        </div>
+                        <div class="price">
+                            1.000.000đ
+                        </div>
+                        <button type="button">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+            <div class="item">
+                <div class="product">
+                    <a href="" class="img_product">
+                      <img src="./image/images/images/images/áo vest.png" alt="">
+                      <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <div class="info">
+                        <h2>
+                            <a href="">Áo vest</a>
+                        </h2>
+                        <div class="description">
+                            Màu đen nhìn rất là bắt mắt,phù hợp các chị em trên 30
+                        </div>
+                        <div class="price">
+                            1.000.000đ
+                        </div>
+                        <button type="button">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+            <div class="item">
+                <div class="product">
+                    <a href="" class="img_product">
+                        <img src="./image/images/images/images/áo vest.png" alt="">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <div class="info">
+                        <h2>
+                            <a href="">Áo vest</a>
+                        </h2>
+                        <div class="description">
+                            Màu đen nhìn rất là bắt mắt,phù hợp các chị em trên 30
+                        </div>
+                        <div class="price">
+                            1.000.000đ
+                        </div>
+                        <button type="button">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+            <div class="item">
+                <div class="product">
+                    <a href="" class="img_product">
+                        <img src="./image/images/images/images/áo vest.png" alt="">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <div class="info">
+                        <h2>
+                            <a href="">Áo vest</a>
+                        </h2>
+                        <div class="description">
+                            Màu đen nhìn rất là bắt mắt,phù hợp các chị em trên 30
+                        </div>
+                        <div class="price">
+                            1.000.000đ
+                        </div>
+                        <button type="button">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+            <div class="item">
+                <div class="product">
+                    <a href="" class="img_product">
+                        <img src="./image/images/images/images/áo vest.png" alt="">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <div class="info">
+                        <h2>
+                            <a href="">Áo vest</a>
+                        </h2>
+                        <div class="description">
+                            Màu đen nhìn rất là bắt mắt,phù hợp các chị em trên 30
+                        </div>
+                        <div class="price">
+                            1.000.000đ
+                        </div>
+                        <button type="button">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+            <div class="item">
+                <div class="product">
+                    <a href="" class="img_product">
+                        <img src="./image/images/images/images/áo vest.png" alt="">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <div class="info">
+                        <h2>
+                            <a href="">Áo vest</a>
+                        </h2>
+                        <div class="description">
+                            Màu đen nhìn rất là bắt mắt,phù hợp các chị em trên 30
+                        </div>
+                        <div class="price">
+                            1.000.000đ
+                        </div>
+                        <button type="button">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+            <!-- end -->
+            <div class="item">
+                <div class="product">
+                    <a href="" class="img_product">
+                        <img src="./image/images/images/images/áo vest.png" alt="">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </a>
+                    <div class="info">
+                        <h2>
+                            <a href="">Áo vest</a>
+                        </h2>
+                        <div class="description">
+                            Màu đen nhìn rất là bắt mắt,phù hợp các chị em trên 30
+                        </div>
+                        <div class="price">
+                            1.000.000đ
+                        </div>
+                        <button type="button">Thêm vào giỏ hàng</button>
+                    </div>
+                </div>
+            </div>
+            <!-- end -->
+    </div></div></main>
+    <footer>
+      <a id="scrolltop" href="#top"><i class="fa-solid fa-arrow-up"></i></a>
+    </footer>
+    <script src="./jquery/jquery-3.7.1.min.js"></script>
+    <script src="./node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- <script>
+     document.querySelectorAll('.product').forEach(function(product) {
+    // Khi di chuột vào sản phẩm
+    product.addEventListener('mouseover', function() {
+        // Hiển thị giỏ hàng của sản phẩm hiện tại
+        this.querySelector('i').style.display = 'block';
+    });
+  
+    // Khi di chuột ra khỏi sản phẩm
+    product.addEventListener('mouseout', function() {
+        // Ẩn giỏ hàng của sản phẩm hiện tại
+        this.querySelector('i').style.display = 'none';
+    });
+  });
+  
+  
+    </script> -->
+  
+  
+  </body></html>
